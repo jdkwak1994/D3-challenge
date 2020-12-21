@@ -36,6 +36,12 @@ d3.csv("assets/data/data.csv").then(function(csvdata) {
         .call(yaxis)
         .attr("class", "yaxis");
 
-    
+    var circles = chartGroup.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xscale(d.age))
+        .attr("cy", d => yscale(d.smokes))
+        .attr("r", "10");
 
 });
